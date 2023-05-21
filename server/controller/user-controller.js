@@ -41,3 +41,12 @@ export const editUser = async (req, res) => {
         res.status(409).json({ massege: error.massege })
     }
 }
+
+export const deleteUser = async (req, res) => {
+    try {
+        await User.deleteOne({ _id: req.params.id })
+        res.status(200).json({message: "user data deleted successfully.!"})
+    } catch (error) {
+        res.status(409).json({ massege: error.massege })
+    }
+}

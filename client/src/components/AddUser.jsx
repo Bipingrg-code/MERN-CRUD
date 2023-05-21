@@ -3,6 +3,7 @@ import { FormControl, FormGroup, InputLabel, Input, Typography, styled, Button }
 import { useState } from 'react'
 import { addUser } from '../Service/api'
 
+
 import { useNavigate } from 'react-router-dom'
 
 const Container = styled(FormGroup)`
@@ -33,6 +34,7 @@ const AddUser = () => {
   const addUserDetails = () => {
     addUser(user)
     navigate('/all')
+
   }
 
   return (

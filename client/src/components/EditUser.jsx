@@ -34,7 +34,7 @@ const EditUser = () => {
   //fetching data in form
   useEffect(() => {
     loadUserData()
-  }, [])
+  },[])
 
   //userDetailsLoad func
   const loadUserData = async () => {
