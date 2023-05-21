@@ -1,6 +1,8 @@
 import { Table, TableHead, TableBody, TableRow, TableCell, styled, Button } from "@mui/material"
 import { useEffect, useState } from 'react'
-import { getUser } from "../Service/api"
+import { getUsers } from "../Service/api"
+import { Link } from 'react-router-dom'
+
 
 const StyledTable = styled(Table)`
   width: 90%;
@@ -19,8 +21,8 @@ const AllUser = () => {
 
   const getAllUser = async () => {
     // console.log("hello")
-    let response = await getUser();
-    console.log(response.data)
+    let response = await getUsers();
+    // console.log(response.data)
     setUsers(response.data)
   }
   return (
@@ -55,7 +57,7 @@ const AllUser = () => {
                 {user.phone}
               </TableCell>
               <TableCell>
-                <Button variant="contained" style={{ marginRight: 10 }}>Edit</Button>
+                <Button variant="contained" style={{ marginRight: 10 }} component={Link} to={`/edit/${user._id}`}>Edit</Button>
                 <Button variant="contained" color="secondary"> Delete</Button>
               </TableCell>
             </TableRow>
